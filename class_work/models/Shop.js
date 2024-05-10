@@ -11,8 +11,8 @@ const createShop = async (id, name) => {
     TableName: "shops",
     Item: {
       id: id,
-      name: name
-    }
+      name: name,
+    },
   };
 
   try {
@@ -30,8 +30,8 @@ const getShopDetails = async (shopId) => {
   const params = {
     TableName: "shops",
     Key: {
-      id: parseInt(shopId)
-    }
+      id: parseInt(shopId),
+    },
   };
 
   try {
@@ -49,16 +49,16 @@ const updateShop = async (id, name) => {
   const params = {
     TableName: "shops",
     Key: {
-      id: id
+      id: id,
     },
     UpdateExpression: "set #n = :name",
     ExpressionAttributeNames: {
-      "#n": "name"
+      "#n": "name",
     },
     ExpressionAttributeValues: {
-      ":name": name
+      ":name": name,
     },
-    ReturnValues: "ALL_NEW"
+    ReturnValues: "ALL_NEW",
   };
 
   try {
@@ -76,8 +76,8 @@ const deleteShop = async (id) => {
   const params = {
     TableName: "shops",
     Key: {
-      id: id
-    }
+      id: id,
+    },
   };
 
   try {
@@ -93,5 +93,5 @@ module.exports = {
   getShopDetails,
   createShop,
   updateShop,
-  deleteShop
+  deleteShop,
 };
